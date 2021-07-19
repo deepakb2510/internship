@@ -6,7 +6,7 @@
   height: 5rem;
   display: flex;
   align-items: center;
-  background-color: #0a6474;
+  background-color: #3232b6a2;
   padding: 0 10%;
   justify-content: space-evenly
 }
@@ -44,10 +44,3 @@
   color: white;
 }
 
-.badge {
-  background-color: #8acc20;
-  color: white;
-  border-radius: 12px;
-  padding: 0 1rem;
-  margin-left: 0.5rem;
-}

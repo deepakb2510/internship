@@ -1,8 +1,9 @@
 import React from 'react'
+import MediaCard from '../contents/aboutuscontent';
 
 function About(){
     return(
-        <h1>THis is about page</h1>
+         <MediaCard/>
     )
 }
 

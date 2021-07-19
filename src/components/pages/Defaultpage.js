@@ -1,8 +1,13 @@
 import React from 'react'
-
+import MediaControlCard from '../contents/musiccard'
+import MediaCard from '../contents/cards';
+import classes from './Defaultpage.module.css'
 function Defaultpage(){
     return(
-        <h1>This is Homepage</h1>
+        <div className={classes.page}>
+            <MediaCard/> 
+            <MediaCard/>
+        </div>
     )
 }
 

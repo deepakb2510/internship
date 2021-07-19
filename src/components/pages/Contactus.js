@@ -1,8 +1,9 @@
 import React from 'react'
+import MediaCard from '../contents/Contactuscontent';
 
 function Contactus(){
     return(
-        <h1>This is Contact page</h1>
+        <MediaCard/>
     )
 }
 
