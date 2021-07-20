@@ -30,7 +30,7 @@ function Header(props) {
       collapseOnSelect
       expand="lg"
       bg="dark"
-      variant="light"
+      variant="dark"
     >
       <Container className="mw-100">
         {/* <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand> */}
@@ -51,8 +51,12 @@ function Header(props) {
             <Link className={classes.link} to="/Contactus">
               <h5>Contactus</h5>
             </Link>
-            <Button variant="dark outline-secondary">Signin</Button>
-            <Button variant="dark outline-secondary">Signup</Button>
+            <Button className={classes.btn} variant="dark outline-secondary">
+              Signin
+            </Button>
+            <Button className={classes.btn} variant="dark outline-secondary">
+              Signup
+            </Button>
           </Nav>
         </Navbar.Collapse>
       </Container>

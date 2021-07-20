@@ -26,3 +26,7 @@ h5 {
 .container {
   max-width: 100%;
 }
+.btn:hover {
+  background: white !important;
+  color: black !important;
+}
