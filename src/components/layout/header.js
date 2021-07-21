@@ -7,7 +7,10 @@ import { positions } from "@material-ui/system";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { CgSun } from "react-icons/cg";
 import { HiMoon } from "react-icons/hi";
+<<<<<<< HEAD
 import { useHistory } from "react-router-dom";
+=======
+>>>>>>> 361b16fc6e1af92647270a0222831a04cd8d3b24
 import styled from "styled-components";
 const Toggle = styled.button`
   cursor: pointer;
@@ -23,10 +26,13 @@ const Toggle = styled.button`
   transition: all 0.5s ease;
 `;
 function Header(props) {
+<<<<<<< HEAD
   const history = useHistory();
   const handleSignUp = () => history.push("/login");
   const handleSignIn = () => history.push("/signup");
 
+=======
+>>>>>>> 361b16fc6e1af92647270a0222831a04cd8d3b24
   const icon =
     props.theme === "light" ? <CgSun size={15} /> : <HiMoon size={15} />;
   return (
@@ -53,6 +59,7 @@ function Header(props) {
               <h5>Home</h5>
             </Link>
             {/* <Link className = {classes.link} to='/About'>AboutUs</Link> */}
+<<<<<<< HEAD
             <Link className={classes.link} to="/contact-us">
               <h5>Contactus</h5>
             </Link>
@@ -68,6 +75,15 @@ function Header(props) {
               className={classes.btn}
               variant="dark outline-secondary"
             >
+=======
+            <Link className={classes.link} to="/Contactus">
+              <h5>Contactus</h5>
+            </Link>
+            <Button className={classes.btn} variant="dark outline-secondary">
+              Signin
+            </Button>
+            <Button className={classes.btn} variant="dark outline-secondary">
+>>>>>>> 361b16fc6e1af92647270a0222831a04cd8d3b24
               Signup
             </Button>
           </Nav>

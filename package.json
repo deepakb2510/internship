@@ -9,7 +9,10 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "bootstrap": "^5.0.2",
+<<<<<<< HEAD
     "firebase": "^8.7.1",
+=======
+>>>>>>> 361b16fc6e1af92647270a0222831a04cd8d3b24
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
     "react-dom": "^17.0.2",
