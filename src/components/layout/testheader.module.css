@@ -1,0 +1,32 @@
+.link {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  margin-top: 10px;
+  margin-right: 25px;
+}
+.link:hover {
+  color: rgb(99, 97, 97);
+}
+.container {
+  display: flex;
+  justify-content: right;
+}
+h2 {
+  color: rgb(255, 255, 255);
+}
+.navbar-toggler {
+  background-color: rgb(99, 97, 97);
+}
+h5 {
+  align-items: center;
+}
+.buttonn {
+  margin-right: 5px;
+}
+.container {
+  max-width: 100%;
+}
+.btn:hover {
+  background: white !important;
+  color: black !important;
+}
