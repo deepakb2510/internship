@@ -9,10 +9,12 @@ import { CgSun } from "react-icons/cg";
 import { HiMoon } from "react-icons/hi";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
+import logo from "./images/logodevarena.png";
+
 const Toggle = styled.button`
   cursor: pointer;
-  height: 25px;
-  width: 25px;
+  height: 30px;
+  width: 30px;
   border-radius: 20%;
   border: none;
   background-color: ${(props) => props.theme.titleColor};
@@ -39,8 +41,9 @@ function Header(props) {
     >
       <Container className="mw-100">
         {/* <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand> */}
-
-        <h2>DevArena Solution</h2>
+        <Link to="/">
+          <img src={logo} alt="logo" className={classes.img} />
+        </Link>
         <Toggle className="mx-4" onClick={props.toggleTheme}>
           {icon}
         </Toggle>
@@ -49,26 +52,26 @@ function Header(props) {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto"></Nav>
           <Nav>
-            <Link className={classes.link} to="/">
-              <h5>Home</h5>
+            <Link className={classes.link} to="/about">
+              <h5>About us</h5>
             </Link>
             {/* <Link className = {classes.link} to='/About'>AboutUs</Link> */}
             <Link className={classes.link} to="/contact-us">
-              <h5>Contactus</h5>
+              <h5>Contact us</h5>
             </Link>
             <Button
               onClick={handleSignIn}
               className={classes.btn}
               variant="dark outline-secondary"
             >
-              Signin
+              Sign up
             </Button>
             <Button
               onClick={handleSignUp}
               className={classes.btn}
               variant="dark outline-secondary"
             >
-              Signup
+              Log in
             </Button>
           </Nav>
         </Navbar.Collapse>

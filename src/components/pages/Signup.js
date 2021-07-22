@@ -11,6 +11,7 @@ import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "./contexts/AuthContext";
 import logo from "./images/logodevarena.png";
+import classes from "./Login.module.css";
 
 import { Link, useHistory } from "react-router-dom";
 
@@ -44,53 +45,59 @@ export default function Signup() {
 
   return (
     <>
-      <Card className="mx-auto">
-        <Card.Body>
-          <h2 className="text-center mb-4">Sign Up</h2>
+      <div className={classes.center}>
+        <Card className={classes.card}>
+          <Card.Body>
+            <h2 className="text-center text-dark mb-4">Sign Up</h2>
 
-          <div className="mt-5 mb-5 text-center">
-            <img src={logo} class="rounded" alt="hellp"></img>
-          </div>
+            <div className="mt-5 mb-5 text-center">
+              <img src={logo} class="rounded" alt="hellp"></img>
+            </div>
 
-          {error && <Alert variant="danger">{error}</Alert>}
-          {/* form for Email input */}
-          <Form onSubmit={handleSubmit}>
-            <Form.Group id="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" ref={emailRef} required />
-            </Form.Group>
-            {/* form for Password input */}
-            <Form.Group id="password">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" ref={passwordRef} required />
-            </Form.Group>
-            {/* form for password confirmation */}
-            <Form.Group id="password-confirm">
-              <Form.Label>Confirm Password</Form.Label>
-              <Form.Control type="password" ref={passwordConfirmRef} required />
-            </Form.Group>
-            {/* button for  for normal sign up*/}
-            <Button
-              disabled={loading}
-              className="mt-2 w-100 center"
-              type="submit"
-            >
-              Sign Up
-            </Button>
-            <p class="text-justify text-center mt-2 mb-1">-or-</p>
-            {/* button for Google sign up */}
-            <Button
-              disabled={loading}
-              className="mt-2 w-100 center btn btn-light"
-              type="submit"
-            >
-              Google
-            </Button>
-          </Form>
-        </Card.Body>
-      </Card>
-      <div className="w-100 text-center mt-2">
-        Already have an account? <Link to="/login">Log In.</Link>
+            {error && <Alert variant="danger">{error}</Alert>}
+            {/* form for Email input */}
+            <Form onSubmit={handleSubmit}>
+              <Form.Group id="email">
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email" ref={emailRef} required />
+              </Form.Group>
+              {/* form for Password input */}
+              <Form.Group id="password">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" ref={passwordRef} required />
+              </Form.Group>
+              {/* form for password confirmation */}
+              <Form.Group id="password-confirm">
+                <Form.Label>Confirm Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  ref={passwordConfirmRef}
+                  required
+                />
+              </Form.Group>
+              {/* button for  for normal sign up*/}
+              <Button
+                disabled={loading}
+                className="mt-2 w-100 center"
+                type="submit"
+              >
+                Sign Up
+              </Button>
+              <p class="text-justify text-center mt-2 mb-1">-or-</p>
+              {/* button for Google sign up */}
+              <Button
+                disabled={loading}
+                className="mt-2 w-100 center btn btn-light"
+                type="submit"
+              >
+                Google
+              </Button>
+            </Form>
+            <div className="w-100 text-center mt-2">
+              Already have an account? <Link to="/login">Log In.</Link>
+            </div>
+          </Card.Body>
+        </Card>
       </div>
     </>
   );
