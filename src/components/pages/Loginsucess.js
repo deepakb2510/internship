@@ -13,6 +13,7 @@ export default function Loginsucess() {
 
     try {
       await logout();
+
       history.push("/login"); /* redirectuser to login on logout */
     } catch {
       setError("Failed to log out");
@@ -21,12 +22,12 @@ export default function Loginsucess() {
 
   return (
     <>
-      <Card>
+      <Card className="mx-auto w-50">
         <Card.Body>
           {/* Card for user info update*/}
           <h2 className="text-center text-dark mb-4">Profile</h2>
           {error && <Alert variant="danger">{error}</Alert>}
-          <strong>Email:</strong> {currentUser.email}
+          <strong className="text-dark">Email: {currentUser.email}</strong>
           <Link to="/update-profile" className="btn btn-primary w-100 mt-3">
             {" "}
             {/* redirect user to update profile */}
@@ -34,11 +35,6 @@ export default function Loginsucess() {
           </Link>
         </Card.Body>
       </Card>
-      <div className="w-100 text-center mt-2">
-        <Button variant="link" onClick={handleLogout}>
-          Log Out
-        </Button>
-      </div>
     </>
   );
 }

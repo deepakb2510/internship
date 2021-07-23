@@ -1,6 +1,6 @@
 .card {
-  margin: 0 auto !important;
-  width: 100% !important;
+  max-width: 40rem;
+  margin: auto;
   color: black;
 }
 .center {
@@ -12,6 +12,9 @@
 @media (max-width: 767px) {
   .card {
     margin: 0 auto !important;
-    width: 100% !important;
+    width: 80% !important;
   }
+}
+
+.flex {
 }

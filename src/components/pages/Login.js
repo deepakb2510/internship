@@ -1,11 +1,12 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useContext } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "./contexts/AuthContext";
 import logo from "./images/logodevarena.png";
 import { Link, useHistory } from "react-router-dom";
 import classes from "./Login.module.css";
 import styled from "styled-components";
-
+import Coding from "./images/coding.svg";
+import { UserContext } from "../../App";
 export default function Login(props) {
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -13,6 +14,7 @@ export default function Login(props) {
   const { login } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const { state, dispatch } = useContext(UserContext);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -22,6 +24,7 @@ export default function Login(props) {
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
       history.push("/loginsucess");
+      dispatch({ type: "USER", payload: true });
     } catch {
       setError("Failed to login :/");
     }
