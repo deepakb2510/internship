@@ -25,6 +25,7 @@ const Login = lazy(() => import("./components/pages/Login"));
 const Loginsucess = lazy(() => import("./components/pages/Loginsucess"));
 const UpdateProfile = lazy(() => import("./components/pages/UpdateProfile"));
 const ForgotPassword = lazy(() => import("./components/pages/ForgotPassword"));
+const AdminLogin = lazy(() => import("./components/pages/AdminLogin"));
 
 export const UserContext = createContext();
 
@@ -53,6 +54,7 @@ function App() {
                       path="/update-profile"
                       component={UpdateProfile}
                     />
+                    <Route path="/admin" component={AdminLogin} />
                     <Route path="/forgot-password" component={ForgotPassword} />
                   </Switch>
                 </Suspense>

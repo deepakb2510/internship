@@ -51,7 +51,7 @@ function Header(props) {
     props.theme === "light" ? <CgSun size={15} /> : <HiMoon size={15} />;
 
   const RenderMenu = () => {
-    if (state) {
+    if (state === "USER") {
       return (
         <Navbar
           className={classes.navbar}
@@ -79,6 +79,43 @@ function Header(props) {
                 {/* <Link className = {classes.link} to='/About'>AboutUs</Link> */}
                 <Link className={classes.link} to="/contact-us">
                   <h5>Contact us</h5>
+                </Link>
+                <Button
+                  onClick={handleLogout}
+                  className={classes.btn}
+                  variant="dark outline-secondary"
+                >
+                  Log Out
+                </Button>
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
+      );
+    } else if (state === "ADMIN") {
+      return (
+        <Navbar
+          className={classes.navbar}
+          collapseOnSelect
+          expand="lg"
+          bg="dark"
+          variant="dark"
+        >
+          <Container className="mw-100">
+            {/* <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand> */}
+            <Link to="/">
+              <img src={logo} alt="logo" className={classes.img} />
+            </Link>
+            <Toggle className="mx-4" onClick={props.toggleTheme}>
+              {icon}
+            </Toggle>
+
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+              <Nav className="me-auto"></Nav>
+              <Nav>
+                <Link className={classes.link} to="/admin">
+                  <h5>Admin</h5>
                 </Link>
                 <Button
                   onClick={handleLogout}

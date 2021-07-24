@@ -23,8 +23,16 @@ export default function Login(props) {
       setError("");
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
-      history.push("/loginsucess");
-      dispatch({ type: "USER", payload: true });
+      if (
+        emailRef.current.value === "admin@admin.com" &&
+        passwordRef.current.value === "123456"
+      ) {
+        history.push("/admin");
+        dispatch({ type: "ADMIN", payload: "ADMIN" });
+      } else {
+        history.push("/loginsucess");
+        dispatch({ type: "USER", payload: "USER" });
+      }
     } catch {
       setError("Failed to login :/");
     }
@@ -39,7 +47,7 @@ export default function Login(props) {
           <h2 className="text-center  text-dark mb-4">LogIn</h2>
 
           <div className="mt-5 mb-5 text-center">
-            <img src={logo} class="rounded" alt="logo"></img>
+            <img src={logo} className="rounded" alt="logo"></img>
           </div>
 
           {error && <Alert variant="danger">{error}</Alert>}
@@ -63,7 +71,7 @@ export default function Login(props) {
             >
               Log in
             </Button>
-            <p class="text-justify text-center mt-2 mb-1">-or-</p>
+            <p className="text-justify text-center mt-2 mb-1">-or-</p>
             {/* button for Google sign up */}
             <Button
               disabled={loading}

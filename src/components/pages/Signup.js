@@ -7,15 +7,18 @@ for more info https://www.npmjs.com/package/bootstrap-show-password
 
 /* used ParticlesBg for animated background effect for more info https://reactjsexample.com/react-particles-animation-background-component/ */
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "./contexts/AuthContext";
 import logo from "./images/logodevarena.png";
 import classes from "./Login.module.css";
+import { db } from "../../Firebase";
+import app from "../../Firebase";
 
 import { Link, useHistory } from "react-router-dom";
 
 export default function Signup() {
+  const userRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
@@ -23,6 +26,8 @@ export default function Signup() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
+
+  const id = userRef;
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -34,8 +39,17 @@ export default function Signup() {
     try {
       setError("");
       setLoading(true);
+
       await signup(emailRef.current.value, passwordRef.current.value);
-      history.push("/loginsucess");
+      db.collection("User")
+        .add({ sadad: "asda" })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      history.push("/login");
     } catch {
       setError("Failed to create an account");
     }
@@ -50,12 +64,16 @@ export default function Signup() {
           <h2 className="text-center text-dark mb-4">Sign Up</h2>
 
           <div className="mt-5 mb-5 text-center">
-            <img src={logo} class="rounded" alt="hellp"></img>
+            <img src={logo} className="rounded" alt="hellp"></img>
           </div>
 
           {error && <Alert variant="danger">{error}</Alert>}
           {/* form for Email input */}
           <Form onSubmit={handleSubmit}>
+            <Form.Group id="username">
+              <Form.Label>Username</Form.Label>
+              <Form.Control type="text" ref={userRef} required />
+            </Form.Group>
             <Form.Group id="email">
               <Form.Label>Email</Form.Label>
               <Form.Control type="email" ref={emailRef} required />
@@ -78,7 +96,7 @@ export default function Signup() {
             >
               Sign Up
             </Button>
-            <p class="text-justify text-center mt-2 mb-1">-or-</p>
+            <p className="text-justify text-center mt-2 mb-1">-or-</p>
             {/* button for Google sign up */}
             <Button
               disabled={loading}
