@@ -41,13 +41,7 @@ export default function Signup() {
       setLoading(true);
 
       await signup(emailRef.current.value, passwordRef.current.value);
-      db.collection("User")
-        .add(
-      JSON.parse(
-        JSON.stringify({
-          Mail: emailRef.current.value,
-          UserName: userRef.current.value,
-        })
+      db.collection("User").add(JSON.parse(JSON.stringify({Mail: emailRef.current.value,UserName: userRef.current.value,})))
       history.push("/login");
     } catch {
       setError("Failed to create an account");
