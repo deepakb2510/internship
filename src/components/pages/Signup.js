@@ -42,13 +42,12 @@ export default function Signup() {
 
       await signup(emailRef.current.value, passwordRef.current.value);
       db.collection("User")
-        .add({ Mail:emailRef.current.value})
-        .then((res) => {
-          console.log(res);
+        .add(
+      JSON.parse(
+        JSON.stringify({
+          Mail: emailRef.current.value,
+          UserName: userRef.current.value,
         })
-        .catch((err) => {
-          console.log(err);
-        });
       history.push("/login");
     } catch {
       setError("Failed to create an account");
