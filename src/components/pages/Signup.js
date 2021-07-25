@@ -42,7 +42,7 @@ export default function Signup() {
 
       await signup(emailRef.current.value, passwordRef.current.value);
       db.collection("User")
-        .add({ sadad: "asda" })
+        .add({ Mail:emailRef.current.value})
         .then((res) => {
           console.log(res);
         })
