@@ -1,19 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { Card, Button, Alert } from "react-bootstrap";
 import { useAuth } from "./contexts/AuthContext";
+import { UserContext } from "../../App";
 
 export default function Loginsucess() {
   const [error, setError] = useState("");
   const { currentUser, logout } = useAuth();
   const history = useHistory();
+  const { state, dispatch } = useContext(UserContext);
 
   async function handleLogout() {
     setError("");
 
     try {
       await logout();
-
+      dispatch({ type: " USER", payload: false });
+      window.localStorage.setItem("user", "NOUSER");
       history.push("/login"); /* redirectuser to login on logout */
     } catch {
       setError("Failed to log out");

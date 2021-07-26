@@ -28,7 +28,6 @@ export default function Signup() {
   const history = useHistory();
 
   const id = userRef;
-
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -41,14 +40,15 @@ export default function Signup() {
       setLoading(true);
 
       await signup(emailRef.current.value, passwordRef.current.value);
-      db.collection("User")
-        .add({ sadad: "asda" })
-        .then((res) => {
-          console.log(res);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      db.collection("User").add(
+        JSON.parse(
+          JSON.stringify({
+            Mail: emailRef.current.value,
+            UserName: userRef.current.value,
+          })
+        )
+      );
+
       history.push("/login");
     } catch {
       setError("Failed to create an account");
@@ -56,6 +56,7 @@ export default function Signup() {
 
     setLoading(false);
   }
+  useEffect(() => {}, []);
 
   return (
     <>

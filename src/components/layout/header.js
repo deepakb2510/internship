@@ -3,7 +3,6 @@ import { NavDropdown, Navbar, Container, Nav, Button } from "react-bootstrap";
 import Typography from "@material-ui/core/Typography";
 import classes from "./testheader.module.css";
 import { useAuth } from "../pages/contexts/AuthContext";
-
 import { Link } from "react-router-dom";
 import { positions } from "@material-ui/system";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -13,6 +12,8 @@ import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import logo from "./images/logodevarena.png";
 import { UserContext } from "../../App";
+import auth from "../../Firebase";
+
 const Toggle = styled.button`
   cursor: pointer;
   height: 30px;
@@ -35,6 +36,7 @@ function Header(props) {
   const history = useHistory();
   const handleSignUp = () => history.push("/login");
   const handleSignIn = () => history.push("/signup");
+
   async function handleLogout() {
     setError("");
 

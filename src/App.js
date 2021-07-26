@@ -54,7 +54,7 @@ function App() {
                       path="/update-profile"
                       component={UpdateProfile}
                     />
-                    <Route path="/admin" component={AdminLogin} />
+                    <PrivateRoute path="/admin" component={AdminLogin} />
                     <Route path="/forgot-password" component={ForgotPassword} />
                   </Switch>
                 </Suspense>
