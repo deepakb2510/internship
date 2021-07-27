@@ -82,6 +82,9 @@ function Header(props) {
                 <Link className={classes.link} to="/contact-us">
                   <h5>Contact us</h5>
                 </Link>
+                <Link className={classes.link} to="/loginsucess">
+                  <h5>Profile</h5>
+                </Link>
                 <Button
                   onClick={handleLogout}
                   className={classes.btn}
@@ -118,6 +121,9 @@ function Header(props) {
               <Nav>
                 <Link className={classes.link} to="/admin">
                   <h5>Admin</h5>
+                </Link>
+                <Link className={classes.link} to="/loginsucess">
+                  <h5>Profile</h5>
                 </Link>
                 <Button
                   onClick={handleLogout}

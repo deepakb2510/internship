@@ -72,15 +72,6 @@ export default function Login(props) {
             >
               Log in
             </Button>
-            <p className="text-justify text-center mt-2 mb-1">-or-</p>
-            {/* button for Google sign up */}
-            <Button
-              disabled={loading}
-              className="mt-2 w-100 center btn btn-light"
-              type="submit"
-            >
-              Google
-            </Button>
           </Form>
           <div className="w-100 text-center mt-3">
             <Link to="/forgot-password">Forgot Password</Link>
